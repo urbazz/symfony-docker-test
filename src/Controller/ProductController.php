@@ -1,16 +1,23 @@
 <?php
 
-namespace App;
+namespace App\Controller;
 
-use App\ProductService;
+use App\Service\ProductService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class ProductController extends AbstractController {
-    #[Route('/api/products', methods: ['GET'])]
+#[Route('/api/product/', name:'products')]
+class UserController extends AbstractController
+{
+    #[Route(path:"/", methods: ["GET"])]
+    public function getAllProducts(ProductService $service) {
+        $service->getAllProducts();
+    }
 
-    public function index(ProductService $service)
-    {
-        $service -> getAll();
+    #[Route(path:'/product/{id}', methods: ["GET"])]
+    public function getOneProduct(Request $request, ProductService $service) {
+        $service->getOneProduct($request);
     }
 }

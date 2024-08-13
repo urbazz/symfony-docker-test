@@ -1,13 +1,25 @@
 <?php
 
-namespace App;
+namespace App\Service;
+
+use App\Entity\Product;
+use Doctrine\ORM\EntityManagerInterface;
 
 class ProductService
 {
-    public function getAll()
-    {
-        $products = ['product 1', 'product 2', 'product 3'];
+    public function getAllProducts() {
 
-        return $products;
+    }
+
+    public function getOneProduct(Product $product) {
+
+    }
+
+    public function deleteProduct(Product $product) {
+
+    }
+
+    public function updateProduct(Product $product) {
+
     }
 }

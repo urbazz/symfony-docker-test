@@ -6,22 +6,18 @@ use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity]
 
-class Product
-{
+class User {
     #[ORM\Id]
     #[ORM\GeneratedValue(strategy:"AUTO")]
     #[ORM\Column(type:"integer")]
     private int $id;
 
     #[ORM\Column(type:"string")]
-    private string $name;
-
-    #[ORM\Column(type:"integer")]
-    private int $price;
-
-    #[ORM\Column(type:"text")]
-    private string $description;
+    private string $username;
 
     #[ORM\Column(type:"string")]
-    private ?string $shortDescription;
+    private string $email;
+
+    #[ORM\Column(type:"string")]
+    private string $password;
 }
